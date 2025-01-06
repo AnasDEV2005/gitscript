@@ -29,7 +29,7 @@ git_push() {
 
     # Push to remote (Git will handle authentication)
     echo "Pushing to remote repository..."
-    git push origin main
+    git push origin master
 
     # Check for push errors
     if [ $? -ne 0 ]; then
