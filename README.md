@@ -1,0 +1,2 @@
+# gitscript
+tesst
