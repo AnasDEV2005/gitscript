@@ -76,12 +76,4 @@ select choice in "Git Push to Repository" "Quit"; do
             ;;
     esac
 done
-        "Quit")
-            echo "Exiting..."
-            break
-            ;;
-        *)
-            echo "Invalid choice. Please try again."
-            ;;
-    esac
-done
+
