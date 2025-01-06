@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 configure_remote() {
