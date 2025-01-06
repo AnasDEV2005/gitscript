@@ -27,9 +27,13 @@ git_push() {
     # Ensure remote is configured
     configure_remote
 
+    # Prompt for branch name (default to 'master')
+    read -p "Enter the branch name to push (default: master): " branch_name
+    branch_name=${branch_name:-master}
+
     # Push to remote (Git will handle authentication)
-    echo "Pushing to remote repository..."
-    git push origin master
+    echo "Pushing to remote repository on branch '$branch_name'..."
+    git push origin "$branch_name"
 
     # Check for push errors
     if [ $? -ne 0 ]; then
@@ -39,7 +43,7 @@ git_push() {
             case $option in
                 "Force Push")
                     echo "Forcing push..."
-                    git push origin main --force
+                    git push origin "$branch_name" --force
                     break
                     ;;
                 "Handle Manually")
@@ -63,6 +67,15 @@ select choice in "Git Push to Repository" "Quit"; do
         "Git Push to Repository")
             git_push
             ;;
+        "Quit")
+            echo "Exiting..."
+            break
+            ;;
+        *)
+            echo "Invalid choice. Please try again."
+            ;;
+    esac
+done
         "Quit")
             echo "Exiting..."
             break
